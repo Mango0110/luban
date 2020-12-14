@@ -4,7 +4,9 @@ const shell = require("shelljs");
 
 module.exports = {
   /**
-   * @returns {string[]}
+   * @name 对比当前的分支改动范围
+   * @info ['packagesd的任何目录的src和cli-shared-types的dist下面的所有文件']
+   * @returns {string[]} 更改的目录文件名称
    */
   getChangedPackages() {
     const { stdout } = shell.exec(
@@ -37,6 +39,7 @@ module.exports = {
     if (!streams) {
       streams = [process.stdout, process.stderr];
     }
+    console.log(streams);
 
     var drainCount = 0;
 
